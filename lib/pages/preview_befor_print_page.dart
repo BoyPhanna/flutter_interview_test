@@ -6,6 +6,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:interview_test/controllers/controller.dart';
+import 'package:interview_test/pages/home_page.dart';
 import 'dart:ui' as ui;
 
 import 'package:interview_test/utils/print_pdf.dart';
@@ -585,8 +586,8 @@ class _PreviewBeforPrintPageState extends State<PreviewBeforPrintPage> {
                                   text: "តើអ្នកចង់ចាកចេញមែនទេ?",
                                   showCancelBtn: true,
                                   onConfirmBtnTap: () {
-                                    Get.back();
-                                    Get.back();
+                                    Navigator.pop(context);
+                                    Navigator.pop(context);
                                   },
                                 );
                               },

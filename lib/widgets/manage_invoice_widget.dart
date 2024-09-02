@@ -83,7 +83,7 @@ class _ManageInvoiceWigetState extends State<ManageInvoiceWiget> {
                                     // final pdf = await generateKhmerPdf();
                                     Navigator.pop(context);
                                     // showPdfPreview(context, pdf);
-                                    Get.to(PreviewBeforPrintPage());
+                                    Get.to(() => PreviewBeforPrintPage());
                                   },
                                   context: context,
                                   type: QuickAlertType.confirm,
@@ -96,8 +96,8 @@ class _ManageInvoiceWigetState extends State<ManageInvoiceWiget> {
                                 QuickAlert.show(
                                   context: context,
                                   type: QuickAlertType.warning,
-                                  title: "ទិន្នន័យមិនគ្រប់",
-                                  text: "សូមជ្រើរើសអ្នកបើកបរម្នាក់ជាមុនសិន",
+                                  title: "មិនទាន់អាចរក្សាទុកបានទេ",
+                                  text: "សូមជ្រើរើសអ្នកដឹកជញ្ជូនម្នាក់ជាមុនសិន",
                                   showCancelBtn: false,
                                   showConfirmBtn: true,
                                   confirmBtnText: "យល់ព្រម",
@@ -575,7 +575,7 @@ class _ManageInvoiceWigetState extends State<ManageInvoiceWiget> {
                                                                                   padding: EdgeInsets.all(0),
                                                                                 ),
                                                                                 onPressed: () {
-                                                                                  manageInvoiceController.choseAreas.removeAt(index);
+                                                                                  manageInvoiceController.removeChoseArea(index);
                                                                                   setState(() {});
                                                                                 },
                                                                                 child: Icon(
@@ -778,63 +778,61 @@ class _ManageInvoiceWigetState extends State<ManageInvoiceWiget> {
                             ],
                           ),
                         ),
-                        Obx(
-                          () => Expanded(
-                            child: Container(
-                              width: double.infinity,
-                              child: ListView.builder(
-                                itemCount: manageInvoiceController
-                                    .searchDrivers.length,
-                                itemBuilder: (context, index) {
-                                  Color color = index % 2 == 0
-                                      ? Colors.white
-                                      : Colors.black12;
-                                  return Container(
-                                    width: double.infinity,
-                                    height: 40.h,
-                                    child: Row(
-                                      children: [
-                                        ColumnBodyWidget(
-                                            width: 60,
-                                            child: Checkbox(
-                                              value: manageInvoiceController
-                                                  .searchDrivers[index].chose,
-                                              onChanged: (bool? value) {
-                                                print(index);
-                                                manageInvoiceController
-                                                    .choseDriver(index);
+                        Expanded(
+                          child: Container(
+                            width: double.infinity,
+                            child: ListView.builder(
+                              itemCount:
+                                  manageInvoiceController.searchDrivers.length,
+                              itemBuilder: (context, index) {
+                                Color color = index % 2 == 0
+                                    ? Colors.white
+                                    : Colors.black12;
+                                return Container(
+                                  width: double.infinity,
+                                  height: 40.h,
+                                  child: Row(
+                                    children: [
+                                      ColumnBodyWidget(
+                                          width: 60,
+                                          child: Checkbox(
+                                            value: manageInvoiceController
+                                                .searchDrivers[index].chose,
+                                            onChanged: (bool? value) {
+                                              print(index);
+                                              manageInvoiceController
+                                                  .choseDriver(index);
 
-                                                setState(() {});
-                                              },
-                                            ),
-                                            color: color),
-                                        Expanded(
-                                          child: ColumnBodyWidget(
-                                            child: Text(
-                                                "${manageInvoiceController.searchDrivers[index].driverName}"),
-                                            width: double.infinity,
-                                            color: color,
+                                              setState(() {});
+                                            },
                                           ),
-                                        ),
-                                        ColumnBodyWidget(
-                                          width: 60.h,
+                                          color: color),
+                                      Expanded(
+                                        child: ColumnBodyWidget(
+                                          child: Text(
+                                              "${manageInvoiceController.searchDrivers[index].driverName}"),
+                                          width: double.infinity,
                                           color: color,
-                                          child: Padding(
-                                            padding: EdgeInsets.all(5.h),
-                                            child: Image(
-                                              image: AssetImage(
-                                                  "assets/images/${manageInvoiceController.searchDrivers[index].image}"),
-                                            ),
+                                        ),
+                                      ),
+                                      ColumnBodyWidget(
+                                        width: 60.h,
+                                        color: color,
+                                        child: Padding(
+                                          padding: EdgeInsets.all(5.h),
+                                          child: Image(
+                                            image: AssetImage(
+                                                "assets/images/${manageInvoiceController.searchDrivers[index].image}"),
                                           ),
                                         ),
-                                      ],
-                                    ),
-                                  );
-                                },
-                              ),
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              },
                             ),
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ))

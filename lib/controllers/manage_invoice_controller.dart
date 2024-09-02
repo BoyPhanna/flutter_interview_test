@@ -136,14 +136,6 @@ class ManageInvoiceController extends GetxController {
     totalAmountInArear.value = total;
   }
 
-  void choseAreaToMakeInvoice(int index) {
-    choseAreas.add(showAreas[0].clients[index].clone());
-    totalAmountInArear.value -= showAreas[0].clients[index].amount;
-    totalAmountChoseMakeInvoice.value += showAreas[0].clients[index].amount;
-    totalNewCans += showAreas[0].clients[index].newCans;
-    showAreas[0].clients.removeAt(index);
-  }
-
   void choseDriver(int index2) {
     int index;
     index = -1;
@@ -181,7 +173,6 @@ class ManageInvoiceController extends GetxController {
 
   List<DriverModel> searchDriverByName(String name) {
     // Search for the first object where the name matches the regex
-
     // Define your search string
     String searchString = name; // Example: searching for names similar to 'Ali'
     RegExp regex = RegExp(searchString, caseSensitive: false);
@@ -204,5 +195,19 @@ class ManageInvoiceController extends GetxController {
     for (int i = 0; i < drivers.length; i++) {
       searchDrivers.add(drivers[i].clone());
     }
+  }
+
+  void removeChoseArea(int index) {
+    totalNewCans -= choseAreas[index].newCans;
+    totalAmountChoseMakeInvoice.value -= choseAreas[index].amount;
+    choseAreas.removeAt(index);
+  }
+
+  void choseAreaToMakeInvoice(int index) {
+    choseAreas.add(showAreas[0].clients[index].clone());
+    totalAmountInArear.value -= showAreas[0].clients[index].amount;
+    totalAmountChoseMakeInvoice.value += showAreas[0].clients[index].amount;
+    totalNewCans += showAreas[0].clients[index].newCans;
+    showAreas[0].clients.removeAt(index);
   }
 }

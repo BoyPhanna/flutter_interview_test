@@ -81,8 +81,8 @@ class MakeInvoiceWidget extends StatelessWidget {
                           onTap: () {
                             fetureController.feture.value = "abc";
                           },
-                          title: "បង់លុយ",
-                          icon: Icons.macro_off,
+                          title: "របាយការណ៍វិក្ក័យប័ត្រ",
+                          icon: Icons.add_chart,
                         ),
                       ],
                     ),
@@ -94,14 +94,14 @@ class MakeInvoiceWidget extends StatelessWidget {
                             fetureController.feture.value = "abc";
                           },
                           title: "របាយការណ៍ចែកផ្លូវ",
-                          icon: Icons.edit_document,
+                          icon: Icons.calendar_today_rounded,
                         ),
                         SideBarMenuWidget(
                           onTap: () {
                             fetureController.feture.value = "abc";
                           },
                           title: "របាយការណ៍វិក្ក័យប័ត្រថ្មី",
-                          icon: Icons.edit_document,
+                          icon: Icons.pie_chart,
                         ),
                       ],
                     ),

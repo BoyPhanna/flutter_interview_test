@@ -63,13 +63,13 @@ class _ProcessPageState extends State<ProcessPage> {
                                 },
                                 width: 70.h,
                                 height: 70.h,
-                                icon: Icons.inbox,
+                                icon: Icons.receipt,
                               ),
                               MenuOfTapWidget(
                                 title: "ទូទាត់វិក្ក័យប័ត្រ",
                                 width: 70.h,
                                 height: 70.h,
-                                icon: Icons.money_rounded,
+                                icon: Icons.payments_outlined,
                                 onTap: () {
                                   fetureController.menu.value = "";
                                 },
@@ -106,7 +106,7 @@ class _ProcessPageState extends State<ProcessPage> {
                                 title: "ដាក់ស្នើរប្រចាំថ្ងៃ",
                                 width: 70.h,
                                 height: 70.h,
-                                icon: Icons.request_page,
+                                icon: Icons.add_comment_rounded,
                                 onTap: () {
                                   fetureController.menu.value = "";
                                 },
@@ -115,7 +115,7 @@ class _ProcessPageState extends State<ProcessPage> {
                                 title: "ត្រួតពិនិត្យការដាក់ស្នើរប្រចាំថ្ងៃ",
                                 width: 200.h,
                                 height: 70.h,
-                                icon: Icons.money_rounded,
+                                icon: Icons.checklist_rounded,
                                 onTap: () {
                                   fetureController.menu.value = "";
                                 },

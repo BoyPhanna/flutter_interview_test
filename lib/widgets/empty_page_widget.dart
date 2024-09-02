@@ -28,38 +28,40 @@ class _EmptyPageWidgetState extends State<EmptyPageWidget> {
             ),
           ),
           // Other content on top
-          // Positioned(
-          //     left: 10.h,
-          //     top: 10.h,
-          //     child: Obx(
-          //       () => Row(
-          //         children: [
-          //           ElevatedButton(
-          //             onPressed: () {
-          //               fetureController.isMusic.value =
-          //                   !fetureController.isMusic.value;
-          //               if (fetureController.isMusic.value) {
-          //                 FlameAudio.bgm.resume();
-          //               } else {
-          //                 FlameAudio.bgm.pause();
-          //               }
-          //             },
-          //             child: Text(fetureController.isMusic.value
-          //                 ? "បិទចម្រៀង"
-          //                 : "បើកចម្រៀង"),
-          //           ),
-          //           SizedBox(
-          //             width: 10.h,
-          //           ),
-          //           ElevatedButton(
-          //             onPressed: () {
-          //               fetureController.changeMusic();
-          //             },
-          //             child: Text("ដូរបទចម្រៀង"),
-          //           ),
-          //         ],
-          //       ),
-          //     )),
+
+          Positioned(
+            left: 10.h,
+            top: 10.h,
+            child: Row(
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    fetureController.isMusic.value =
+                        !fetureController.isMusic.value;
+                    if (fetureController.isMusic.value) {
+                      FlameAudio.bgm.resume();
+                    } else {
+                      FlameAudio.bgm.pause();
+                    }
+                  },
+                  child: Obx(
+                    () => Text(fetureController.isMusic.value
+                        ? "បិទចម្រៀង"
+                        : "បើកចម្រៀង"),
+                  ),
+                ),
+                SizedBox(
+                  width: 10.h,
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    fetureController.changeMusic();
+                  },
+                  child: Text("ដូរបទចម្រៀង"),
+                ),
+              ],
+            ),
+          ),
           Center(
             child: FadeIn(
               duration: Duration(seconds: 2),

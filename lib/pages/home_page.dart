@@ -31,11 +31,11 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     manageInvoiceController.init();
     manageInvoiceController.choseAreas.clear();
-    // FlameAudio.bgm.initialize();
-    // FlameAudio.bgm.play("music${number}.mp3");
-    // Future.delayed(Duration(milliseconds: 1000), () {
-    //   FlameAudio.bgm.pause();
-    // });
+    FlameAudio.bgm.initialize();
+    FlameAudio.bgm.play("music${number}.mp3");
+    Future.delayed(Duration(milliseconds: 1000), () {
+      FlameAudio.bgm.pause();
+    });
     super.initState();
   }
 
